@@ -1,6 +1,10 @@
 package main.java.Encode;
 
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
 
 public class Encode {
     final protected static char[] hexCode = "0123456789ABCDEF".toCharArray();
@@ -22,7 +26,7 @@ public class Encode {
             r.append(hexCode[(b >> 4) & 0xF]);
             r.append(hexCode[(b & 0xF)]);
         }
-        System.out.println(r.toString());
+        System.out.println("TO Hex: "+r.toString());
     }
 
     public void encoding() {
@@ -44,8 +48,29 @@ public class Encode {
         }
     }
 
+    private void coverter() throws UnsupportedEncodingException {
+        String s = "这是一段中文字符串";
+        byte[] b =s.getBytes("UTF-8");//String转字节数组
+        toHex(b);
+        System.out.println("Text: "+s);
+        System.out.println("Text [Byte Format]: "+b);
+        System.out.println("Text [Byte Format]: "+b.toString());
+        String n = new String(b, "UTF-8");//字节数组转String
+        System.out.println("Text Decrypted: "+n);
+        Charset charset = Charset.forName("UTF-8");
+        ByteBuffer byteBuffer = charset.encode(s);
+        CharBuffer charBuffer = charset.decode(byteBuffer);
+        System.out.println("ByteBuffer: "+byteBuffer.array());
+        System.out.println("CharBuffer: "+charBuffer);
+    }
+
     public static void main(String[] args) {
         Encode encode = new Encode();
-        encode.encoding();
+        //encode.encoding();
+        try {
+            encode.coverter();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 }
