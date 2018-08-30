@@ -218,7 +218,7 @@ public class ShellUtils {
     }
 
     public static void main(String args[]) {
-        ShellOut exec = exec("10.110.181.6", "root", "123456", 22, "ls -l /etc/passwdaa");
+        ShellOut exec = exec("node1.leap.com", "root", "123456", 22, "ls -l /etc/passwd");
         System.out.println(exec.toString());
     }
 }

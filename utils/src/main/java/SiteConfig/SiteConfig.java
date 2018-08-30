@@ -11,7 +11,7 @@ public class SiteConfig {
     protected static Properties prop = null;
 
     static {
-        prop = loadProperties("site.properties");
+        prop = loadProperties("../site.properties");
     }
 
     public static String get(String key) {
