@@ -1,4 +1,4 @@
-package main.java.DB;
+package SiteConfig;
 
 import java.io.IOException;
 import java.io.InputStream;

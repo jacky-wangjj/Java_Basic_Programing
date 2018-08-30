@@ -1,30 +1,29 @@
-package main.java.DB;
+package DB;
 
-import main.java.DB.SiteConfig;
+import SiteConfig.SiteConfig;
+
 import java.sql.*;
 
 /**
  * Created by Administrator on 2018/7/20.
  */
-public class PostgreSQLJDBC {
+public class MySQLJDBC {
 
     public static void main(String[] args) {
-        String driver = SiteConfig.get("postgresql.jdbc.driver");
-        String host = SiteConfig.get("postgresql.jdbc.host");
-        String port = SiteConfig.get("postgresql.jdbc.port");
-        String database = SiteConfig.get("postgresql.jdbc.database");
-        String URL = "jdbc:postgresql://"+host+":"+port+"/"+database;
-        String user = SiteConfig.get("postgresql.jdbc.username");
-        String pwd = SiteConfig.get("postgresql.jdbc.password");
+        String driver = SiteConfig.get("mysql.jdbc.driver");
+        String host = SiteConfig.get("mysql.jdbc.host");
+        String port = SiteConfig.get("mysql.jdbc.port");
+        String URL = "jdbc:mysql://"+host+":"+port+"/datahub";
+        String user = SiteConfig.get("mysql.jdbc.username");
+        String pwd = SiteConfig.get("mysql.jdbc.password");
 
         Connection conn = null;
         try {
             Class.forName(driver);
             conn = DriverManager.getConnection(URL, user, pwd);
-            conn.setAutoCommit(false);
             Statement stmt = conn.createStatement();
 
-            String sql = "select * from clusterservices;";
+            String sql = "show databases;";
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()) {
                 System.out.println(rs.getString(1));
