@@ -1,5 +1,7 @@
 package main.java.SortAlgorithm;
 
+import java.util.Arrays;
+
 public class Quick {
 
     /**
@@ -68,10 +70,7 @@ public class Quick {
      */
     public void resultPrint(String tags, int[] a) {
         System.out.println(tags);
-        for(int i=0; i<a.length; i++) {
-            System.out.print(a[i] + " ");
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(a));
     }
 
     /**

@@ -1,5 +1,7 @@
 package main.java.SortAlgorithm;
 
+import java.util.Arrays;
+
 /**
  * Created by Administrator on 2018/7/20.
  */
@@ -46,10 +48,7 @@ public class Shell {
      */
     public void resultPrint(String tags, int[] a) {
         System.out.println(tags);
-        for(int i=0; i<a.length; i++) {
-            System.out.print(a[i] + " ");
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(a));
     }
 
     /**
