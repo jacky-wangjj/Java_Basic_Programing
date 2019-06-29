@@ -35,6 +35,16 @@ public class ExceptionExec {
         }
     }
 
+    /**
+     * 结果：
+     * test1
+     * 3
+     * 4
+     * test2
+     * 2
+     * 4
+     * @param args
+     */
     public static void main(String[] args) {
         ExceptionExec ee = new ExceptionExec();
         ee.test1();
